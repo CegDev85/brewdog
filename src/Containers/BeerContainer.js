@@ -23,12 +23,17 @@ const BeerContainer = () => {
     }
 
 
+
     const addFavouriteBeer = function(favouriteBeerName){
         console.log(favouriteBeerName)
         const copyFavourites = [...favouriteBeers]
         copyFavourites.push(favouriteBeerName)
         setFavouriteBeers(copyFavourites)
     }
+
+    const favouriteItems = favouriteBeers.map((name, index) => {
+        return <li key={index}>{name}</li>    
+    })
 
 
     const getBeers = function () {
@@ -41,7 +46,8 @@ const BeerContainer = () => {
         <div className="main-container">
             <BeerSelect beers={beers} onBeerSelect={onBeerSelect}/>
             {selectedBeer ? <BeerDetails beer={selectedBeer}  addFavouriteBeer={addFavouriteBeer}/> : null}
-            {favouriteBeers}
+            <h2>Favourites List</h2>
+            {favouriteItems}
         </div>
     )
 
