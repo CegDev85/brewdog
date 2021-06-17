@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import BeerList from '../Components/BeerList'
 import BeerSelect from '../Components/BeerSelect';
+import BeerDetails from '../Components/BeerDetails';
 
 
 const BeerContainer = () => {
 
     const [beers, setBeers] = useState([]);
-    const [selectedBeer, setSelectedBeer] =useState(null)
+    const [selectedBeer, setSelectedBeer] = useState(null)
 
     useEffect(() => {
         getBeers();
@@ -16,7 +17,7 @@ const BeerContainer = () => {
 
     const onBeerSelect = (beer) => {
         setSelectedBeer(beer)
-        // console.log("you selected" + 
+        console.log("I am running")      
     }
 
 
@@ -28,15 +29,13 @@ const BeerContainer = () => {
     }
 
     return(
-        <div>
+        <div className="main-container">
             <BeerSelect beers={beers} onBeerSelect={onBeerSelect}/>
+            {selectedBeer ? <BeerDetails beer={selectedBeer}/> : null}
         </div>
     )
 
 }
-
-
-
 
 
 export default BeerContainer;

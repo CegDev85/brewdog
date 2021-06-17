@@ -17,8 +17,4 @@ const ListItem = ({beer, index}) => {
 
 
 
-
-
-
-
 export default ListItem

@@ -4,10 +4,14 @@ import ListItem from './ListItem'
 const BeerSelect = ({beers, onBeerSelect}) => {
 
     const beerItems = beers.map((beer, index) => {
-        return(
-            <ListItem beer={beer} key={index} />
-        )
+        return <option value={index} key={index}>{beer.name}</option>    
     })
+
+    // const beerItems = beers.map((beer, index) => {
+    //     return(
+    //         <ListItem beer={beer} key={index} />
+    //     )
+    // })
 
     const handleChange = (event) => {
         const selectedBeer = beers[event.target.value]
@@ -25,8 +29,4 @@ const BeerSelect = ({beers, onBeerSelect}) => {
 }
 
 
-
-
-
-
-export default BeerSelect
+export default BeerSelect;
