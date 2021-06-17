@@ -8,18 +8,27 @@ const BeerContainer = () => {
 
     const [beers, setBeers] = useState([]);
     const [selectedBeer, setSelectedBeer] = useState(null)
+    // const [checkedBeer, setCheckedBeer] = useState(false)
+    const [favouriteBeers, setFavouriteBeers] = useState([])
 
     useEffect(() => {
-        getBeers();
+        getBeers(); 
         console.log("TEST" + {beers})
     },[])
 
 
     const onBeerSelect = (beer) => {
         setSelectedBeer(beer)
-        console.log("I am running")      
+          
     }
 
+
+    const addFavouriteBeer = function(favouriteBeerName){
+        console.log(favouriteBeerName)
+        const copyFavourites = [...favouriteBeers]
+        copyFavourites.push(favouriteBeerName)
+        setFavouriteBeers(copyFavourites)
+    }
 
 
     const getBeers = function () {
@@ -31,7 +40,8 @@ const BeerContainer = () => {
     return(
         <div className="main-container">
             <BeerSelect beers={beers} onBeerSelect={onBeerSelect}/>
-            {selectedBeer ? <BeerDetails beer={selectedBeer}/> : null}
+            {selectedBeer ? <BeerDetails beer={selectedBeer}  addFavouriteBeer={addFavouriteBeer}/> : null}
+            {favouriteBeers}
         </div>
     )
 

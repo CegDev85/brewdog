@@ -7,16 +7,14 @@ const BeerSelect = ({beers, onBeerSelect}) => {
         return <option value={index} key={index}>{beer.name}</option>    
     })
 
-    // const beerItems = beers.map((beer, index) => {
-    //     return(
-    //         <ListItem beer={beer} key={index} />
-    //     )
-    // })
 
     const handleChange = (event) => {
         const selectedBeer = beers[event.target.value]
         onBeerSelect(selectedBeer)
     }
+
+
+    
 
     return(
         <div>
